@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Prahlad Construction Company</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    header {
+      background-color: #20232a;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .about-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 30px;
+      background: #20232a;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-section h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .about-section p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 18px;
+      color: white;
+      line-height: 1.6;
+    }
+
+    .feature-box {
+      display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+    }
+
+    .feature {
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
+  box-sizing: border-box;
+}
+
+.feature.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.feature .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.feature h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.feature p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  word-break: break-word;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #20232a;
+      color: white;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .feature {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Prahlad Construction Co.</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="./services.html">About</a>
+    </nav>
+  </header>
+
+  <section class="about-section">
+  <h2>About Us</h2>
+  <p>Prahlad Construction Company is dedicated to building structures that last generations. We specialize in residential, commercial, and infrastructure projects, ensuring timely delivery, quality craftsmanship, and customer satisfaction in every brick we lay.</p>
+
+  <div class="feature-box">
+    <div class="feature" style="background-image: url('images/build.jpg');">
+      <div class="overlay">
+        <h3>Experience</h3>
+        <p>Over two decades of expertise in the industry.</p>
+      </div>
+    </div>
+
+    <div class="feature" style="background-image: url('images/material.jpg');">
+      <div class="overlay">
+        <h3>Quality</h3>
+        <p>Top-grade materials with strict quality control.</p>
+      </div>
+    </div>
+
+    <div class="feature" style="background-image: url('images/team.png');">
+      <div class="overlay">
+        <h3>Skilled Team</h3>
+        <p>Certified engineers and trained professionals.</p>
+      </div>
+    </div>
+
+    <div class="feature" style="background-image: url('images/supp.webp');">
+      <div class="overlay">
+        <h3>Support</h3>
+        <p>Client support from start to finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    &copy; 2025 Prahlad Construction Company. All rights reserved.
+  </footer>
+
+  <script>
+    // Scroll animation using IntersectionObserver
+    const features = document.querySelectorAll('.feature');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    features.forEach(feature => observer.observe(feature));
+  </script>
+
+</body>
+</html>
